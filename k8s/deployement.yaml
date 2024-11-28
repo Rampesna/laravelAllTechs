@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel_app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: laravel_app
+  template:
+    metadata:
+      labels:
+        app: laravel_app
+    spec:
+      containers:
+      - name: laravel_app
+        image: rampesna/laravelAllTechs:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
